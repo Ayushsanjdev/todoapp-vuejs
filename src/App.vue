@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1 class="head">Todo App</h1>
+    <AddTodo :allTodos="allTodos" />
+    <Todos :allTodos="allTodos" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AddTodo from "./components/addTodo.vue";
+import Todos from "./components/todos.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    AddTodo,
+    Todos,
+  },
+  data() {
+    return {
+      allTodos: ["first todo", "second totdos"],
+    };
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style scoped>
+.head {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding: 2rem 0;
 }
 </style>
